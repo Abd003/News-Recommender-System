@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<h1>.......News Posts......</h1>
+<ul>
+{% for News_Post in object_list %}
+
+
+<div class="container py-3">
+	    	<h2>Products</h2>
+	    	<hr>
+	    	<br>
+	      	<div class="row">
+	        	<div class="col-sm-12 col-md-6 col-lg-3 pb-4">
+	        	</div>
+	      	</div>
+</div>
+
+<div class="card" style="width:18rem;">
+  <div class="card-body">
+    <h5 class="card-title"> {{News_Post.title}} </h5>
+    <p class="card-text">{{News_Post.News_content}} <br> {{News_Post.date}}</p>
+
+    <a href="{% url 'article_detail' News_Post.pk %}" class="btn btn-primary">Detail</a>
+  </div>
+</div>
+
+
+
+
+{%endfor%}
+{% endblock %}
