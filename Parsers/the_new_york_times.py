@@ -36,6 +36,7 @@ year = yesterday[:-6]
 source = "The New York Times"
 tempyesterday = datetime.strftime(datetime.now() - timedelta(1), '%Y/%m/%d')
 
+# Removing duplicate links
 def fin_links(links):
     for lk in links:
         if lk not in unique_page_links: 
@@ -43,6 +44,7 @@ def fin_links(links):
     print("No. of unique links : ", len(unique_page_links))
     return
 
+# Checking if links are from yesterday or day before yesterday
 def checkLinksYestrday(ylinks):
     for lk in ylinks:
         if year not in lk:
@@ -50,6 +52,7 @@ def checkLinksYestrday(ylinks):
             ylinks.remove(lk)
     return
 
+# Extracting links from home page
 page_links = []
 http = httplib2.Http()
 count = 0
@@ -64,6 +67,7 @@ fin_links(page_links)
 
 unique_page_links
 
+# Gathering links from sub pages through home page links
 sub_page_links = []
 initial_links_size = len(unique_page_links)
 updated_links_size = 0
@@ -109,6 +113,7 @@ while(True):
         break
 print("Total yesterday links : ", len(yesterdaylinks))
 
+# Extracting Content from links
 for i in range (len(yesterdaylinks)):
   try:
     auth = ""

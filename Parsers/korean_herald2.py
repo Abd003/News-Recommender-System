@@ -41,6 +41,7 @@ def fin_links(links):
              unique_page_links.append(lk)
     return
 
+# Gathering links from pages
 for i in range(10):
     http = httplib2.Http()
     count = 0
@@ -58,6 +59,7 @@ for i in range(10):
         pass
     fin_links(page_links)
 
+# Creating end links by adding the http protocol at the start
 unique_page_links1=[]
 for link in unique_page_links:
      link='http://www.koreaherald.com'+link
@@ -66,6 +68,7 @@ print("No. of Unique Links : ", len(unique_page_links1))
 
 templinks = unique_page_links1
 
+# Extracting Content from links
 for i in range (len(unique_page_links1)):
     auth = ""
     url = unique_page_links1[i]

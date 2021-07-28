@@ -34,3 +34,9 @@ class Delete_article_view(DeleteView):
     model=News_Post
     template_name='delete_article.html'
     success_url=reverse_lazy('home')
+
+
+#-------Category-View--------#
+def CategoryView(request,cats):
+    category_post=News_Post.objects.filter(category=cats)
+    return render(request,'categories.html',{'cats':cats.title(),'category_post':category_post})

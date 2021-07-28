@@ -35,6 +35,7 @@ monthYear = yesterday[:-3]
 year = yesterday[:-6]
 source = "The National Interest"
 
+# Removing Duplicate links
 def fin_links(links):
     for lk in links:
         if lk not in unique_page_links: 
@@ -42,6 +43,7 @@ def fin_links(links):
     return
 blogs_list=['/blog/the-skeptics','/blog/the-buzz','/blog/paul-pillar','/blog/middle-east-watch','/blog/korea-watch']
 
+# Gathering links from pages
 page_links = []
 count = 0
 for i in range(15):
@@ -58,6 +60,7 @@ for i in range(15):
           page_links.append(link['href'])
   fin_links(page_links)
 
+# Creating end links by adding the http protocol at the start
 unique_page_links1=[]
 for link in unique_page_links:
   link='https://nationalinterest.org'+link
@@ -66,6 +69,7 @@ print("No. of unique links : ", len(unique_page_links1))
 
 unique_page_links1
 
+# Extracting Content from links
 for i in range (len(unique_page_links1)):
     url = unique_page_links1[i]
     article = Article(url)

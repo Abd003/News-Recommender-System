@@ -1,11 +1,12 @@
+<!-- Show news detail of each article-->
 {% extends 'base.html'%}
 {% block title %}{{object.title}}{% endblock %}
 
 {% block content %}
 <h1>{{ object.title }}</h1>
 <small>{{object.News_content}} - {{object.author}}
-  <a href="{% url 'updateArticle' object.pk %}" class="btn btn-link">Edit</a>
-  <a href="{% url 'deleteArticle' object.pk %}" class="btn btn-link">Delete</a>
+  <!-- <a href="{% url 'updateArticle' object.pk %}" class="btn btn-link">Edit</a> -->
+  <!-- <a href="{% url 'deleteArticle' object.pk %}" class="btn btn-link">Delete</a> -->
 
 </small>
 

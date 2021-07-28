@@ -34,12 +34,14 @@ monthYear = yesterday[:-3]
 year = yesterday[:-6]
 source = "Outlook India"
 
+# Removing duplicate links
 def fin_links(links):
     for lk in links:
         if lk not in unique_page_links: 
             unique_page_links.append(lk)
     return
 
+# Gathering links from pages
 page_links = []
 for i in range(10):
 	http = httplib2.Http()
@@ -54,6 +56,7 @@ for i in range(10):
 	fin_links(page_links)
 print("No. of Unique links : ", len(unique_page_links))
 
+# Creating end links by adding the http protocol at the start
 unique_page_links1=[]
 for link in unique_page_links:
 	link='https://www.outlookindia.com/'+link
@@ -63,6 +66,7 @@ print("No. of Unique Links : ", len(unique_page_links1))
 
 unique_page_links1
 
+# Extracting Content from links using beautiful soup
 from bs4 import BeautifulSoup
 Previous_Date = date.today()
 Previous_Date=Previous_Date.strftime("%d %B %Y")
